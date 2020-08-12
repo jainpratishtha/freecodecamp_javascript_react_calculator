@@ -1,0 +1,83 @@
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
+@font-face {
+  font-family: "Digital";
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot");
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff") format("woff"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7") format("svg");
+}
+*{
+  box-sizing:border-box;
+}
+body{
+background: purple;
+min-height: 100vh;
+margin:0;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+font-family: digital;
+}
+.btn{
+border-radius: 50%;
+height:50px;
+width: 50px;
+font-size:25px;
+margin:5px 5px ;
+}
+.display{
+  /* font-size: 30px; */
+  width:100%;
+  text-align:right;
+/* background-color:grey ; */
+padding:10px;
+font-size:30px;
+color:green;
+}
+#calculator{
+    background: black;
+border: 1px solid red;
+color:white;
+  width:245px;
+  height:380px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.btn.dark-gery{
+  background: #333333;
+}
+.btn.orange{
+background: #f68e00
+}
+.btn.light-grey{
+  background: #a5a5a5;
+
+}
+.equals{
+height: 110px;
+border-radius: 50px;
+position: relative;
+left:60px;
+top:120px;
+/* float:right; */
+}
+.plus{height: 110px;
+  border-radius: 50px;
+  position: relative;
+left:120px;
+}
+.zero{
+  position: relative;
+right:0px;
+bottom:0px;
+border-radius: 50px;
+  width:110px;
+
+}
+.num-container{
+position: relative;
+bottom:120px;
+width:180px;
+right:30px;
+}
