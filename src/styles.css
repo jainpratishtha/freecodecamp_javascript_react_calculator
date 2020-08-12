@@ -38,7 +38,7 @@ color:green;
 border: 1px solid red;
 color:white;
   width:245px;
-  height:380px;
+  height:410px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -54,6 +54,13 @@ background: #f68e00
   background: #a5a5a5;
 
 }
+button:active{
+  transform:scale(0.98);
+}
+button:hover{
+  opacity:0.9;
+}
+
 .equals{
 height: 110px;
 border-radius: 50px;
@@ -80,4 +87,10 @@ position: relative;
 bottom:120px;
 width:180px;
 right:30px;
+}
+#output{
+font-size:20px;
+}
+#input{
+color:white;
 }

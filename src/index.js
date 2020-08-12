@@ -6,95 +6,81 @@ const num=[7,8,9,4,5,6,1,2,3,0,'.'];
 const ops_row1=['C','/','*','-','+','='];
 // const ops_col=[];
 
-const Display = () => {
+const Display = (props) => {
   return (
     <div id="display" className="display" style={{ width: '240px' }}>
-      123456
+      <div id="input">{props.input}</div>
+      <div id="ouput">{props.output}</div>
     </div>
   );
 };
-
-
-const Buttons=()=>{
-  return <div><button className="btn btn-dark light-grey " id="clear">
-  C
-</button>
-
-<button className="btn btn-dark light-grey " id="divide">
-  /
-</button>
-
-<button className="btn btn-dark light-grey " id="multiply">
-  *
-</button>
-
-<button className="btn btn-dark orange" id="subtract">
-  -
-</button>
-
-<button className="btn btn-dark dark-grey" id="seven">
-  7
-</button>
-
-<button className="btn btn-dark dark-grey" id="eight">
-  8
-</button>
-
-<button className="btn btn-dark dark-grey" id="nine">
-  9
-</button>
-
-<button className="btn btn-dark orange equals" id="add">
-  +
-</button>
-
-<button className="btn btn-dark dark-grey" id="four">
-  4
-</button>
-
-<button className="btn btn-dark dark-grey" id="five">
-  5
-</button>
-
-<button className="btn btn-dark dark-grey" id="six">
-  6
-</button>
-
-<button className="btn btn-dark dark-grey" id="one">
-  1
-</button>
-
-<button className="btn btn-dark dark-grey" id="two">
-  2
-</button>
-
-<button className="btn btn-dark dark-grey" id="three">
-  3
-</button>
-<button className="btn btn-dark dark-grey zero" id="zero">
-  0
-</button>
-
-<button className="btn btn-dark dark-grey" id="decimal">
-  .
-</button>
-<button className="btn btn-dark orange equals" id="equals">
-  =
-</button></div>;
+class App extends React.Component {
+  state={
+    input:'0',
+    output:'0'
+  }
+handleClick=(event)=>{
+  if(event.target.value==='*'||event.target.value==='/'){
+var x=this.state.input.length;
+if(this.state.input[x-1]==='+'){
+  var new1=this.state.input;
+new1=new1.slice(0,x-1)+event.target.value;
+this.setState({
+  input:new1
+})
+return;}
+  }
+  if(event.target.value==='.'){
+if(this.state.input.includes('.')){
+  return ;
+}
+  }
+if(event.target.value==='='){
+this.setState({
+  input:this.state.input+event.target.value,
+  output:eval(this.state.input).toPrecision(14)
+})
+}
+else if(event.target.value==='C'){
+this.setState({
+  input:'0',
+  output:'0'
+})
+}
+else{
+  if(this.state.input.includes('=')){
+    this.setState({
+        input:event.target.value
+    })
+  }
+else{
+if(this.state.input.length>=15){
+return ;
+}
+  if(this.state.input!=='0'){
+  this.setState({
+    input: this.state.input+event.target.value
+  })
+}
+  else {
+    this.setState({
+      input: event.target.value
+    })
+  }
 }
 
-class App extends React.Component {
+}}
   render() {
     return (
       <div id="calculator">
-        <Display />
+        <Display input={this.state.input} output={this.state.output}/>
         
         {ops_row1.map((key,id)=>(
-        <button className={`btn btn-dark ops orange ${key==='C' && 'light-grey'}  ${(key==='=') && 'equals'}  ${(key==='+') && 'plus'}`} key={id}>{key}</button>
+        <button className={`btn btn-dark ops orange ${key==='C' && 'light-grey'}  ${(key==='=') && 'equals'}  ${(key==='+') && 'plus'}`} key={id} value={key} onClick={this.handleClick}>{key}</button>
         ))}
         <div className="num-container">
         {num.map((n,id)=>(
-<button className={`btn btn-dark dark-grey ${n===0 && 'zero'}`} key={id}>{n}</button>
+        <button className={`btn btn-dark dark-grey ${n===0 && 'zero'}`}key={id} value={n} onClick={this.handleClick}>{n}</button>
         ))}
         </div>
 
