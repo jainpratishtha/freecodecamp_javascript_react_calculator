@@ -22,7 +22,7 @@ class App extends React.Component {
 handleClick=(event)=>{
   if(event.target.value==='*'||event.target.value==='/'){
 var x=this.state.input.length;
-if(this.state.input[x-1]==='+'){
+if(this.state.input[x-1]==='+'||this.state.input[x-1]==='-'){
   var new1=this.state.input;
 new1=new1.slice(0,x-1)+event.target.value;
 this.setState({
